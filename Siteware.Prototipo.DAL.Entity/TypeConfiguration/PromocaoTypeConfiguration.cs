@@ -28,12 +28,12 @@ namespace Siteware.Prototipo.DAL.Entity.TypeConfiguration
 
         protected override void ConfigurarFK()
         {
-            throw new NotImplementedException();
+
         }
 
         protected override void ConfigurarNome()
         {
-            ToTable("PROMOCAO");
+            ToTable("PROMOCOES");
         }
 
         protected override void ConfigurarPK()

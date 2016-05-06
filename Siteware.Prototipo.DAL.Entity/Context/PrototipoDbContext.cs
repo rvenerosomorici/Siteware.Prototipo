@@ -16,9 +16,16 @@ namespace Siteware.Prototipo.DAL.Entity.Context
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Promocao> Promocoes { get; set; }
 
+        public PrototipoDbContext()
+        {
+            Configuration.LazyLoadingEnabled = false;
+
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ProdutoTypeConfiguration());
+            modelBuilder.Configurations.Add(new PromocaoTypeConfiguration());
         }
     }
 }
