@@ -24,11 +24,15 @@ namespace Siteware.Prototipo.DAL.Entity.TypeConfiguration
 
             Property(p => p.Preco)
                 .IsRequired();
+
+            Property(p => p.IdPromocao)
+                .HasColumnName("PROMOCAO_ID")
+                .IsRequired();
         }
 
         protected override void ConfigurarFK()
         {
-            
+            HasRequired(p => p.Promocao).WithMany(p => p.Produtos).HasForeignKey(p => p.IdPromocao);
         }
 
         protected override void ConfigurarNome()

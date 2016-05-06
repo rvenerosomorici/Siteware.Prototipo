@@ -19,7 +19,7 @@ namespace Siteware.Prototipo.DAL.Entity.Context
         public PrototipoDbContext()
         {
             Configuration.LazyLoadingEnabled = false;
-
+            Configuration.ProxyCreationEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

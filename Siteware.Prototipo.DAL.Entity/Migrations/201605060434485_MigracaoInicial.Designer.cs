@@ -13,7 +13,7 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201605060321418_MigracaoInicial"; }
+            get { return "201605060434485_MigracaoInicial"; }
         }
         
         string IMigrationMetadata.Source

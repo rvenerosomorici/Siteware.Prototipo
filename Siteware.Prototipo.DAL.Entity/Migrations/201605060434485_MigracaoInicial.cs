@@ -14,8 +14,11 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         NOME = c.String(nullable: false, maxLength: 150),
                         Preco = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        PROMOCAO_ID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ID);
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.PROMOCOES", t => t.PROMOCAO_ID, cascadeDelete: true)
+                .Index(t => t.PROMOCAO_ID);
             
             CreateTable(
                 "dbo.PROMOCOES",
@@ -31,6 +34,8 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.PRODUTOS", "PROMOCAO_ID", "dbo.PROMOCOES");
+            DropIndex("dbo.PRODUTOS", new[] { "PROMOCAO_ID" });
             DropTable("dbo.PROMOCOES");
             DropTable("dbo.PRODUTOS");
         }
