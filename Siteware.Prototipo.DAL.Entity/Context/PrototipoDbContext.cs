@@ -13,8 +13,8 @@ namespace Siteware.Prototipo.DAL.Entity.Context
 {
     public class PrototipoDbContext : DbContext
     {
-        public DbSet<Produto> Produtos { get; set; }
-        public DbSet<Promocao> Promocoes { get; set; }
+        public System.Data.Entity.DbSet<Promocao> Promocaos { get; set; }
+        public System.Data.Entity.DbSet<Produto> Produtoes { get; set; }
 
         public PrototipoDbContext()
         {
