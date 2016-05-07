@@ -1,6 +1,6 @@
 ﻿namespace Siteware.Prototipo.Dominio
 {
-    public class Produto
+    public partial class Produto
     {
         public int Id { get; set; }
         public string Nome { get; set; }

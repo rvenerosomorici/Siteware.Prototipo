@@ -7,13 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Siteware.Prototipo.Dominio;
-using Siteware.Prototipo.Web.Models;
+using Siteware.Prototipo.DAL.Entity.Context;
 
 namespace Siteware.Prototipo.Web.Controllers
 {
     public class PromocoesController : Controller
     {
-        private SitewarePrototipoWebContext db = new SitewarePrototipoWebContext();
+        private PrototipoDbContext db = new PrototipoDbContext();
 
         // GET: Promocoes
         public ActionResult Index()
@@ -47,7 +47,7 @@ namespace Siteware.Prototipo.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Parametros,BasePromocao,TipoPromocao,ValorPromocao,BaseResultado,TipoResultado,ValorResultado")] Promocao promocao)
+        public ActionResult Create([Bind(Include = "Id,Nome,Tipo,BasePropriedade,BaseTipo,BaseValor,ResultadoPropriedade,ResultadoTipo,ResultadoValor")] Promocao promocao)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Siteware.Prototipo.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Parametros,BasePromocao,TipoPromocao,ValorPromocao,BaseResultado,TipoResultado,ValorResultado")] Promocao promocao)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Tipo,BasePropriedade,BaseTipo,BaseValor,ResultadoPropriedade,ResultadoTipo,ResultadoValor")] Promocao promocao)
         {
             if (ModelState.IsValid)
             {

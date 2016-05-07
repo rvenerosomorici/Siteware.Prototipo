@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Siteware.Prototipo.Dominio.Promocao>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Promoções";
 }
 
-<h2>Index</h2>
+<h2>Promoções</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nova Promoção", "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,25 +15,25 @@
             @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parametros)
+            @Html.DisplayNameFor(model => model.Tipo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BasePromocao)
+            @Html.DisplayNameFor(model => model.BasePropriedade)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TipoPromocao)
+            @Html.DisplayNameFor(model => model.BaseTipo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ValorPromocao)
+            @Html.DisplayNameFor(model => model.BaseValor)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BaseResultado)
+            @Html.DisplayNameFor(model => model.ResultadoPropriedade)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TipoResultado)
+            @Html.DisplayNameFor(model => model.ResultadoTipo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ValorResultado)
+            @Html.DisplayNameFor(model => model.ResultadoValor)
         </th>
         <th></th>
     </tr>
@@ -44,30 +44,30 @@
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parametros)
+            @Html.DisplayFor(modelItem => item.Tipo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BasePromocao)
+            @Html.DisplayFor(modelItem => item.BasePropriedade)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TipoPromocao)
+            @Html.DisplayFor(modelItem => item.BaseTipo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ValorPromocao)
+            @Html.DisplayFor(modelItem => item.BaseValor)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BaseResultado)
+            @Html.DisplayFor(modelItem => item.ResultadoPropriedade)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TipoResultado)
+            @Html.DisplayFor(modelItem => item.ResultadoTipo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ValorResultado)
+            @Html.DisplayFor(modelItem => item.ResultadoValor)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Alterar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

@@ -1,13 +1,12 @@
 ﻿@model Siteware.Prototipo.Dominio.Promocao
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes da Promoção";
 }
 
-<h2>Details</h2>
+<h2>Detalhes da Promoção</h2>
 
 <div>
-    <h4>Promocao</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,64 +18,64 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Parametros)
+            @Html.DisplayNameFor(model => model.Tipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Parametros)
+            @Html.DisplayFor(model => model.Tipo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BasePromocao)
+            @Html.DisplayNameFor(model => model.BasePropriedade)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BasePromocao)
+            @Html.DisplayFor(model => model.BasePropriedade)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoPromocao)
+            @Html.DisplayNameFor(model => model.BaseTipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TipoPromocao)
+            @Html.DisplayFor(model => model.BaseTipo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ValorPromocao)
+            @Html.DisplayNameFor(model => model.BaseValor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ValorPromocao)
+            @Html.DisplayFor(model => model.BaseValor)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BaseResultado)
+            @Html.DisplayNameFor(model => model.ResultadoPropriedade)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BaseResultado)
+            @Html.DisplayFor(model => model.ResultadoPropriedade)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoResultado)
+            @Html.DisplayNameFor(model => model.ResultadoTipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TipoResultado)
+            @Html.DisplayFor(model => model.ResultadoTipo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ValorResultado)
+            @Html.DisplayNameFor(model => model.ResultadoValor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ValorResultado)
+            @Html.DisplayFor(model => model.ResultadoValor)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

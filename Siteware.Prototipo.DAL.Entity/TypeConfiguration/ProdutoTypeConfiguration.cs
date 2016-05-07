@@ -18,9 +18,9 @@ namespace Siteware.Prototipo.DAL.Entity.TypeConfiguration
                 .HasColumnName("ID");
 
             Property(p => p.Nome)
-                .IsRequired()
                 .HasColumnName("NOME")
-                .HasMaxLength(150);
+                .HasMaxLength(150)
+                .IsRequired();
 
             Property(p => p.Preco)
                 .IsRequired();

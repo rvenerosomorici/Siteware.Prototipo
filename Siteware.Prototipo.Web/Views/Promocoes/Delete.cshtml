@@ -1,14 +1,13 @@
 ﻿@model Siteware.Prototipo.Dominio.Promocao
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Excluir Promoção";
 }
 
-<h2>Delete</h2>
+<h2>Excluir Promoção</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja excluir essa promoção?</h3>
 <div>
-    <h4>Promocao</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,59 +19,59 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Parametros)
+            @Html.DisplayNameFor(model => model.Tipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Parametros)
+            @Html.DisplayFor(model => model.Tipo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BasePromocao)
+            @Html.DisplayNameFor(model => model.BasePropriedade)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BasePromocao)
+            @Html.DisplayFor(model => model.BasePropriedade)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoPromocao)
+            @Html.DisplayNameFor(model => model.BaseTipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TipoPromocao)
+            @Html.DisplayFor(model => model.BaseTipo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ValorPromocao)
+            @Html.DisplayNameFor(model => model.BaseValor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ValorPromocao)
+            @Html.DisplayFor(model => model.BaseValor)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BaseResultado)
+            @Html.DisplayNameFor(model => model.ResultadoPropriedade)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BaseResultado)
+            @Html.DisplayFor(model => model.ResultadoPropriedade)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TipoResultado)
+            @Html.DisplayNameFor(model => model.ResultadoTipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TipoResultado)
+            @Html.DisplayFor(model => model.ResultadoTipo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ValorResultado)
+            @Html.DisplayNameFor(model => model.ResultadoValor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ValorResultado)
+            @Html.DisplayFor(model => model.ResultadoValor)
         </dd>
 
     </dl>
@@ -81,8 +80,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
         </div>
     }
 </div>

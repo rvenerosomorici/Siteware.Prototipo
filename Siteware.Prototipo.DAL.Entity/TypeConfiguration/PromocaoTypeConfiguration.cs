@@ -18,36 +18,36 @@ namespace Siteware.Prototipo.DAL.Entity.TypeConfiguration
                 .HasColumnName("ID");
 
             Property(p => p.Nome)
-                .IsRequired()
                 .HasColumnName("NOME")
-                .HasMaxLength(150);
-
-            Property(p => p.Parametros)
-                .HasColumnName("PARAMETRO")
+                .HasMaxLength(150)
                 .IsRequired();
 
-            Property(p => p.BasePromocao)
-                .HasColumnName("BASE_PROMOCAO")
+            Property(p => p.Tipo)
+                .HasColumnName("TIPO")
                 .IsRequired();
 
-            Property(p => p.TipoPromocao)
-                .HasColumnName("TIPO_PROMOCAO")
+            Property(p => p.BasePropriedade)
+                .HasColumnName("BASE_PROPRIEDADE")
                 .IsRequired();
 
-            Property(p => p.ValorPromocao)
-                .HasColumnName("VALOR_PROMOCAO")
+            Property(p => p.BaseTipo)
+                .HasColumnName("BASE_TIPO")
                 .IsRequired();
 
-            Property(p => p.BaseResultado)
-                .HasColumnName("BASE_RESULTADO")
+            Property(p => p.BaseValor)
+                .HasColumnName("BASE_VALOR")
                 .IsRequired();
 
-            Property(p => p.TipoResultado)
-                .HasColumnName("TIPO_RESULTADO")
+            Property(p => p.ResultadoPropriedade)
+                .HasColumnName("RESULTADO_PROPRIEDADE")
                 .IsRequired();
 
-            Property(p => p.ValorResultado)
-                .HasColumnName("VALOR_RESULTADO")
+            Property(p => p.ResultadoTipo)
+                .HasColumnName("RESULTADO_TIPO")
+                .IsRequired();
+
+            Property(p => p.ResultadoValor)
+                .HasColumnName("RESULTADO_VALOR")
                 .IsRequired();
         }
 
