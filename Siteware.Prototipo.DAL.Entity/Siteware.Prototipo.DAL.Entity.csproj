@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201605070008411_CriacaoDB.Designer.cs">
       <DependentUpon>201605070008411_CriacaoDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605071747392_Alteracao_Inclusao_Campos.cs" />
+    <Compile Include="Migrations\201605071747392_Alteracao_Inclusao_Campos.Designer.cs">
+      <DependentUpon>201605071747392_Alteracao_Inclusao_Campos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeConfiguration\ProdutoTypeConfiguration.cs" />
@@ -76,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605070008411_CriacaoDB.resx">
       <DependentUpon>201605070008411_CriacaoDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605071747392_Alteracao_Inclusao_Campos.resx">
+      <DependentUpon>201605071747392_Alteracao_Inclusao_Campos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

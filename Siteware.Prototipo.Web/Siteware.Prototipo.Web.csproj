@@ -131,11 +131,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\PromocoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SitewarePrototipoWebContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,16 +146,17 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Promocoes\Create.cshtml" />
-    <Content Include="Views\Promocoes\Delete.cshtml" />
-    <Content Include="Views\Promocoes\Details.cshtml" />
-    <Content Include="Views\Promocoes\Edit.cshtml" />
-    <Content Include="Views\Promocoes\Index.cshtml" />
     <Content Include="Views\Produtos\Create.cshtml" />
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\Details.cshtml" />
     <Content Include="Views\Produtos\Edit.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Promocoes\Create.cshtml" />
+    <Content Include="Views\Promocoes\Delete.cshtml" />
+    <Content Include="Views\Promocoes\Details.cshtml" />
+    <Content Include="Views\Promocoes\Edit.cshtml" />
+    <Content Include="Views\Promocoes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -163,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Siteware.Generica.Entity\Siteware.Generica.Entity.csproj">

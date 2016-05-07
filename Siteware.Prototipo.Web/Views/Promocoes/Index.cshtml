@@ -17,6 +17,24 @@
         <th>
             @Html.DisplayNameFor(model => model.Parametros)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BasePromocao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPromocao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorPromocao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseResultado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoResultado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorResultado)
+        </th>
         <th></th>
     </tr>
 
@@ -27,6 +45,24 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Parametros)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BasePromocao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoPromocao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorPromocao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaseResultado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoResultado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorResultado)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
