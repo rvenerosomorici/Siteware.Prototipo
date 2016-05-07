@@ -50,9 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\PrototipoDbContext.cs" />
-    <Compile Include="Migrations\201605060434485_MigracaoInicial.cs" />
-    <Compile Include="Migrations\201605060434485_MigracaoInicial.Designer.cs">
-      <DependentUpon>201605060434485_MigracaoInicial.cs</DependentUpon>
+    <Compile Include="Migrations\201605070008411_CriacaoDB.cs" />
+    <Compile Include="Migrations\201605070008411_CriacaoDB.Designer.cs">
+      <DependentUpon>201605070008411_CriacaoDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +74,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605060434485_MigracaoInicial.resx">
-      <DependentUpon>201605060434485_MigracaoInicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605070008411_CriacaoDB.resx">
+      <DependentUpon>201605070008411_CriacaoDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

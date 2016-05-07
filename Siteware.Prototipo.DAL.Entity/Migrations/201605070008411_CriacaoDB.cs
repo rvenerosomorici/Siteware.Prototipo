@@ -3,7 +3,7 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class MigracaoInicial : DbMigration
+    public partial class CriacaoDB : DbMigration
     {
         public override void Up()
         {
@@ -26,7 +26,7 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         NOME = c.String(nullable: false, maxLength: 150),
-                        Parametros = c.String(nullable: false),
+                        PARAMETRO = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             

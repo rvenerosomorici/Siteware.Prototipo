@@ -23,6 +23,7 @@ namespace Siteware.Prototipo.DAL.Entity.TypeConfiguration
                 .HasMaxLength(150);
 
             Property(p => p.Parametros)
+                .HasColumnName("PARAMETRO")
                 .IsRequired();
         }
 

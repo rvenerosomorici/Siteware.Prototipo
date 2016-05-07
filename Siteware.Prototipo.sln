@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Prototipo.DAL.Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Generica.Entity", "Siteware.Generica.Entity\Siteware.Generica.Entity.csproj", "{D9AF82DB-56C6-4C38-8187-7D04788D310F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{6C0E26BE-E4B8-4988-A0CF-7BC0889C4E1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Prototipo.BLL", "Siteware.Prototipo.BLL\Siteware.Prototipo.BLL.csproj", "{1BE1BE58-4718-4283-893B-911211E7030E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,10 @@ Global
 		{D9AF82DB-56C6-4C38-8187-7D04788D310F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9AF82DB-56C6-4C38-8187-7D04788D310F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9AF82DB-56C6-4C38-8187-7D04788D310F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BE1BE58-4718-4283-893B-911211E7030E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE1BE58-4718-4283-893B-911211E7030E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE1BE58-4718-4283-893B-911211E7030E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE1BE58-4718-4283-893B-911211E7030E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +53,6 @@ Global
 		{50B999BF-B9C0-4645-8769-81C0C3C12D12} = {55E98448-DDEA-413E-9AFF-0208263389A2}
 		{FEC5B395-B89B-4279-9291-7BA4FA3C3BB3} = {39938770-92F4-4BD3-8464-B2C7F05AE485}
 		{D9AF82DB-56C6-4C38-8187-7D04788D310F} = {39938770-92F4-4BD3-8464-B2C7F05AE485}
+		{1BE1BE58-4718-4283-893B-911211E7030E} = {6C0E26BE-E4B8-4988-A0CF-7BC0889C4E1F}
 	EndGlobalSection
 EndGlobal
