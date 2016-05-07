@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Siteware.Prototipo.Dominio;
 using Siteware.Prototipo.DAL.Entity.Context;
+using AutoMapper;
+using Siteware.Prototipo.Web.ViewModels.Produtos;
 
 namespace Siteware.Prototipo.Web.Controllers
 {
@@ -18,7 +20,7 @@ namespace Siteware.Prototipo.Web.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(db.Produtoes.ToList());
+            return View(Mapper.Map<List<Produto>, List<ProdutoShowViewModel>>(db.Produtos.ToList()));
         }
 
         // GET: Produtos/Details/5
@@ -28,7 +30,9 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtoes.Find(id);
+            Produto produto = db.Produtos.Find(id);
+
+            ProdutoShowViewModel viewModel = Mapper.Map<Produto, ProdutoShowViewModel>(produto);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -47,16 +51,17 @@ namespace Siteware.Prototipo.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Preco,IdPromocao")] Produto produto)
+        public ActionResult Create([Bind(Include = "Id,Nome,Preco,IdPromocao")] ProdutoValidationViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Produtoes.Add(produto);
+                Produto produto = Mapper.Map<ProdutoValidationViewModel, Produto>(viewModel);
+                db.Produtos.Add(produto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(produto);
+            return View(viewModel);
         }
 
         // GET: Produtos/Edit/5
@@ -66,12 +71,14 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtoes.Find(id);
+            Produto produto = db.Produtos.Find(id);
+
+            ProdutoValidationViewModel viewModel = Mapper.Map<Produto, ProdutoValidationViewModel>(produto);
             if (produto == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(viewModel);
         }
 
         // POST: Produtos/Edit/5
@@ -79,15 +86,16 @@ namespace Siteware.Prototipo.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Preco,IdPromocao")] Produto produto)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Preco,IdPromocao")] ProdutoValidationViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
+                Produto produto = Mapper.Map<ProdutoValidationViewModel, Produto>(viewModel);
                 db.Entry(produto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(produto);
+            return View(viewModel);
         }
 
         // GET: Produtos/Delete/5
@@ -97,12 +105,13 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtoes.Find(id);
+            Produto produto = db.Produtos.Find(id);
+            ProdutoShowViewModel viewModel = Mapper.Map<Produto, ProdutoShowViewModel>(produto);
             if (produto == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(viewModel);
         }
 
         // POST: Produtos/Delete/5
@@ -110,8 +119,8 @@ namespace Siteware.Prototipo.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produto produto = db.Produtoes.Find(id);
-            db.Produtoes.Remove(produto);
+            Produto produto = db.Produtos.Find(id);
+            db.Produtos.Remove(produto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

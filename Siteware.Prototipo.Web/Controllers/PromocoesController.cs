@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Siteware.Prototipo.Dominio;
 using Siteware.Prototipo.DAL.Entity.Context;
+using AutoMapper;
+using Siteware.Prototipo.Web.ViewModels.Promocao;
 
 namespace Siteware.Prototipo.Web.Controllers
 {
@@ -18,7 +20,7 @@ namespace Siteware.Prototipo.Web.Controllers
         // GET: Promocoes
         public ActionResult Index()
         {
-            return View(db.Promocaos.ToList());
+            return View(Mapper.Map<List<Promocao>,List<PromocaoShowViewModel>>(db.Promocoes.ToList()));
         }
 
         // GET: Promocoes/Details/5
@@ -28,12 +30,14 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Promocao promocao = db.Promocaos.Find(id);
+            Promocao promocao = db.Promocoes.Find(id);
+
+            PromocaoShowViewModel viewModel = Mapper.Map<Promocao, PromocaoShowViewModel>(promocao);
             if (promocao == null)
             {
                 return HttpNotFound();
             }
-            return View(promocao);
+            return View(viewModel);
         }
 
         // GET: Promocoes/Create
@@ -47,16 +51,17 @@ namespace Siteware.Prototipo.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Tipo,BasePropriedade,BaseTipo,BaseValor,ResultadoPropriedade,ResultadoTipo,ResultadoValor")] Promocao promocao)
+        public ActionResult Create([Bind(Include = "Id,Nome,Tipo,BasePropriedade,BaseTipo,BaseValor,ResultadoPropriedade,ResultadoTipo,ResultadoValor")] PromocaoValidationViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Promocaos.Add(promocao);
+                Promocao promocao = Mapper.Map<PromocaoValidationViewModel, Promocao>(viewModel);
+                db.Promocoes.Add(promocao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(promocao);
+            return View(viewModel);
         }
 
         // GET: Promocoes/Edit/5
@@ -66,12 +71,14 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Promocao promocao = db.Promocaos.Find(id);
+            Promocao promocao = db.Promocoes.Find(id);
+
+            PromocaoValidationViewModel viewModel = Mapper.Map<Promocao, PromocaoValidationViewModel>(promocao);
             if (promocao == null)
             {
                 return HttpNotFound();
             }
-            return View(promocao);
+            return View(viewModel);
         }
 
         // POST: Promocoes/Edit/5
@@ -79,15 +86,16 @@ namespace Siteware.Prototipo.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Tipo,BasePropriedade,BaseTipo,BaseValor,ResultadoPropriedade,ResultadoTipo,ResultadoValor")] Promocao promocao)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Tipo,BasePropriedade,BaseTipo,BaseValor,ResultadoPropriedade,ResultadoTipo,ResultadoValor")] PromocaoValidationViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
+                Promocao promocao = Mapper.Map<PromocaoValidationViewModel, Promocao>(viewModel);
                 db.Entry(promocao).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(promocao);
+            return View(viewModel);
         }
 
         // GET: Promocoes/Delete/5
@@ -97,12 +105,14 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Promocao promocao = db.Promocaos.Find(id);
+            Promocao promocao = db.Promocoes.Find(id);
+
+            PromocaoShowViewModel viewModel = Mapper.Map<Promocao, PromocaoShowViewModel>(promocao);
             if (promocao == null)
             {
                 return HttpNotFound();
             }
-            return View(promocao);
+            return View(viewModel);
         }
 
         // POST: Promocoes/Delete/5
@@ -110,8 +120,8 @@ namespace Siteware.Prototipo.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Promocao promocao = db.Promocaos.Find(id);
-            db.Promocaos.Remove(promocao);
+            Promocao promocao = db.Promocoes.Find(id);
+            db.Promocoes.Remove(promocao);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
