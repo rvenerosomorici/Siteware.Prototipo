@@ -10,6 +10,6 @@ namespace Siteware.Prototipo.Web.ViewModels.Produtos
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
         [Display(Name = "Promoção")]
-        public int IdPromocao { get; set; }
+        public string NomePromocao { get; set; }
     }
 }

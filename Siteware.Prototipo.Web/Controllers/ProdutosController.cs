@@ -9,12 +9,15 @@ using AutoMapper;
 using Siteware.Prototipo.Web.ViewModels.Produtos;
 using Siteware.Prototipo.Repositorios;
 using Siteware.Prototipo.Repositorio.Entity;
+using Siteware.Prototipo.Repositorios.Entity;
+using Siteware.Prototipo.Web.ViewModels.Promocao;
 
 namespace Siteware.Prototipo.Web.Controllers
 {
     public class ProdutosController : Controller
     {
         private IRepositorioCRUD<Produto, int> db = new ProdutoRepositorio(new PrototipoDbContext());
+        private IRepositorioCRUD<Promocao, int> dbPromocao = new PromocaoRepositorio(new PrototipoDbContext());
 
         // GET: Produtos
         public ActionResult Index()
@@ -36,12 +39,15 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(viewModel);
         }
 
         // GET: Produtos/Create
         public ActionResult Create()
         {
+            List<PromocaoShowViewModel> lstPromocoes = Mapper.Map<List<Promocao>, List<PromocaoShowViewModel>>(dbPromocao.Selecionar());
+            SelectList ddPromocoes = new SelectList(lstPromocoes, "Id", "Nome");
+            ViewBag.ddPromocoes = ddPromocoes;
             return View();
         }
 
@@ -70,6 +76,9 @@ namespace Siteware.Prototipo.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.SelecionarPorId(id.Value);
+            List<PromocaoShowViewModel> lstPromocoes = Mapper.Map<List<Promocao>, List<PromocaoShowViewModel>>(dbPromocao.Selecionar());
+            SelectList ddPromocoes = new SelectList(lstPromocoes, "Id", "Nome");
+            ViewBag.ddPromocoes = ddPromocoes;
 
             ProdutoValidationViewModel viewModel = Mapper.Map<Produto, ProdutoValidationViewModel>(produto);
             if (produto == null)

@@ -7,45 +7,45 @@ namespace Siteware.Prototipo.Repositorios.Base.Entity
     public class RepositorioGenericoEntity<TEntidade, TChave> : IRepositorioCRUD<TEntidade, TChave>
         where TEntidade : class
     {
-        private DbContext _contexto;
+        protected DbContext _contexto;
 
         public RepositorioGenericoEntity(DbContext contexto)
         {
             _contexto = contexto;
         }
 
-        public void Alterar(TEntidade entidade)
+        public virtual void Alterar(TEntidade entidade)
         {
             _contexto.Set<TEntidade>().Attach(entidade);
             _contexto.Entry(entidade).State = EntityState.Modified;
             _contexto.SaveChanges();
         }
 
-        public void Excluir(TEntidade entidade)
+        public virtual void Excluir(TEntidade entidade)
         {
             _contexto.Set<TEntidade>().Attach(entidade);
             _contexto.Entry(entidade).State = EntityState.Deleted;
             _contexto.SaveChanges();
         }
 
-        public void ExcluirPorId(TChave id)
+        public virtual void ExcluirPorId(TChave id)
         {
             TEntidade entidade = SelecionarPorId(id);
             Excluir(entidade);
         }
 
-        public void Inserir(TEntidade entidade)
+        public virtual void Inserir(TEntidade entidade)
         {
             _contexto.Set<TEntidade>().Add(entidade);
             _contexto.SaveChanges();
         }
 
-        public List<TEntidade> Selecionar()
+        public virtual List<TEntidade> Selecionar()
         {
             return _contexto.Set<TEntidade>().ToList();
         }
 
-        public TEntidade SelecionarPorId(TChave id)
+        public virtual TEntidade SelecionarPorId(TChave id)
         {
             return _contexto.Set<TEntidade>().Find(id);
         }
