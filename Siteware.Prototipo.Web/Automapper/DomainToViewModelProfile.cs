@@ -2,11 +2,6 @@
 using Siteware.Prototipo.Dominio;
 using Siteware.Prototipo.Web.ViewModels.Produtos;
 using Siteware.Prototipo.Web.ViewModels.Promocao;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Siteware.Prototipo.Web.Automapper
 {

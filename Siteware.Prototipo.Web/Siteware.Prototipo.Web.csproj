@@ -193,6 +193,18 @@
       <Project>{50b999bf-b9c0-4645-8769-81c0c3c12d12}</Project>
       <Name>Siteware.Prototipo.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Siteware.Prototipo.Repositorio.Entity\Siteware.Prototipo.Repositorios.Entity.csproj">
+      <Project>{a18b5c04-2859-486b-bfa1-9db2611f99b5}</Project>
+      <Name>Siteware.Prototipo.Repositorios.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Siteware.Prototipo.Repositorios.Entity\Siteware.Prototipo.Repositorios.Base.Entity.csproj">
+      <Project>{e48494bd-d80b-44f0-ad74-17a44c0eb38d}</Project>
+      <Name>Siteware.Prototipo.Repositorios.Base.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Siteware.Prototipo.Repositorios\Siteware.Prototipo.Repositorios.csproj">
+      <Project>{28e2dc65-9181-4ca8-933c-a627fd7f6899}</Project>
+      <Name>Siteware.Prototipo.Repositorios</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

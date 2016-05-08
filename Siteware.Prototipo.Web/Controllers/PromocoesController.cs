@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Siteware.Prototipo.Dominio;
-using Siteware.Prototipo.DAL.Entity.Context;
 using AutoMapper;
 using Siteware.Prototipo.Web.ViewModels.Promocao;
+using Siteware.Prototipo.Repositorios.Entity;
+using Siteware.Prototipo.Repositorios;
+using Siteware.Prototipo.DAL.Entity.Context;
 
 namespace Siteware.Prototipo.Web.Controllers
 {
     public class PromocoesController : Controller
     {
-        private PrototipoDbContext db = new PrototipoDbContext();
+        private IRepositorioCRUD<Promocao, int> db = new PromocaoRepositorio(new PrototipoDbContext());
 
         // GET: Promocoes
         public ActionResult Index()
         {
-            return View(Mapper.Map<List<Promocao>,List<PromocaoShowViewModel>>(db.Promocoes.ToList()));
+            return View(Mapper.Map<List<Promocao>,List<PromocaoShowViewModel>>(db.Selecionar()));
         }
 
         // GET: Promocoes/Details/5
@@ -30,7 +29,7 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Promocao promocao = db.Promocoes.Find(id);
+            Promocao promocao = db.SelecionarPorId(id.Value);
 
             PromocaoShowViewModel viewModel = Mapper.Map<Promocao, PromocaoShowViewModel>(promocao);
             if (promocao == null)
@@ -56,8 +55,7 @@ namespace Siteware.Prototipo.Web.Controllers
             if (ModelState.IsValid)
             {
                 Promocao promocao = Mapper.Map<PromocaoValidationViewModel, Promocao>(viewModel);
-                db.Promocoes.Add(promocao);
-                db.SaveChanges();
+                db.Inserir(promocao);
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +69,7 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Promocao promocao = db.Promocoes.Find(id);
+            Promocao promocao = db.SelecionarPorId(id.Value);
 
             PromocaoValidationViewModel viewModel = Mapper.Map<Promocao, PromocaoValidationViewModel>(promocao);
             if (promocao == null)
@@ -91,8 +89,7 @@ namespace Siteware.Prototipo.Web.Controllers
             if (ModelState.IsValid)
             {
                 Promocao promocao = Mapper.Map<PromocaoValidationViewModel, Promocao>(viewModel);
-                db.Entry(promocao).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Alterar(promocao);
                 return RedirectToAction("Index");
             }
             return View(viewModel);
@@ -105,7 +102,7 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Promocao promocao = db.Promocoes.Find(id);
+            Promocao promocao = db.SelecionarPorId(id.Value);
 
             PromocaoShowViewModel viewModel = Mapper.Map<Promocao, PromocaoShowViewModel>(promocao);
             if (promocao == null)
@@ -120,19 +117,8 @@ namespace Siteware.Prototipo.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Promocao promocao = db.Promocoes.Find(id);
-            db.Promocoes.Remove(promocao);
-            db.SaveChanges();
+            db.ExcluirPorId(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

@@ -19,6 +19,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{6C0E26BE-E4B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Prototipo.BLL", "Siteware.Prototipo.BLL\Siteware.Prototipo.BLL.csproj", "{1BE1BE58-4718-4283-893B-911211E7030E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositorios", "Repositorios", "{BB3072F3-AC94-4816-994B-AD2FC103D463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Prototipo.Repositorios", "Siteware.Prototipo.Repositorios\Siteware.Prototipo.Repositorios.csproj", "{28E2DC65-9181-4CA8-933C-A627FD7F6899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Prototipo.Repositorios.Base.Entity", "Siteware.Prototipo.Repositorios.Entity\Siteware.Prototipo.Repositorios.Base.Entity.csproj", "{E48494BD-D80B-44F0-AD74-17A44C0EB38D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Prototipo.Repositorios.Entity", "Siteware.Prototipo.Repositorio.Entity\Siteware.Prototipo.Repositorios.Entity.csproj", "{A18B5C04-2859-486B-BFA1-9DB2611F99B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +53,18 @@ Global
 		{1BE1BE58-4718-4283-893B-911211E7030E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BE1BE58-4718-4283-893B-911211E7030E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BE1BE58-4718-4283-893B-911211E7030E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E2DC65-9181-4CA8-933C-A627FD7F6899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E2DC65-9181-4CA8-933C-A627FD7F6899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E2DC65-9181-4CA8-933C-A627FD7F6899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E2DC65-9181-4CA8-933C-A627FD7F6899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48494BD-D80B-44F0-AD74-17A44C0EB38D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48494BD-D80B-44F0-AD74-17A44C0EB38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48494BD-D80B-44F0-AD74-17A44C0EB38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48494BD-D80B-44F0-AD74-17A44C0EB38D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A18B5C04-2859-486B-BFA1-9DB2611F99B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A18B5C04-2859-486B-BFA1-9DB2611F99B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A18B5C04-2859-486B-BFA1-9DB2611F99B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A18B5C04-2859-486B-BFA1-9DB2611F99B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +74,8 @@ Global
 		{FEC5B395-B89B-4279-9291-7BA4FA3C3BB3} = {39938770-92F4-4BD3-8464-B2C7F05AE485}
 		{D9AF82DB-56C6-4C38-8187-7D04788D310F} = {39938770-92F4-4BD3-8464-B2C7F05AE485}
 		{1BE1BE58-4718-4283-893B-911211E7030E} = {6C0E26BE-E4B8-4988-A0CF-7BC0889C4E1F}
+		{28E2DC65-9181-4CA8-933C-A627FD7F6899} = {BB3072F3-AC94-4816-994B-AD2FC103D463}
+		{E48494BD-D80B-44F0-AD74-17A44C0EB38D} = {BB3072F3-AC94-4816-994B-AD2FC103D463}
+		{A18B5C04-2859-486B-BFA1-9DB2611F99B5} = {BB3072F3-AC94-4816-994B-AD2FC103D463}
 	EndGlobalSection
 EndGlobal

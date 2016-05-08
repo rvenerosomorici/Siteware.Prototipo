@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Siteware.Prototipo.Dominio;
 using Siteware.Prototipo.DAL.Entity.Context;
 using AutoMapper;
 using Siteware.Prototipo.Web.ViewModels.Produtos;
+using Siteware.Prototipo.Repositorios;
+using Siteware.Prototipo.Repositorio.Entity;
 
 namespace Siteware.Prototipo.Web.Controllers
 {
     public class ProdutosController : Controller
     {
-        private PrototipoDbContext db = new PrototipoDbContext();
+        private IRepositorioCRUD<Produto, int> db = new ProdutoRepositorio(new PrototipoDbContext());
 
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(Mapper.Map<List<Produto>, List<ProdutoShowViewModel>>(db.Produtos.ToList()));
+            return View(Mapper.Map<List<Produto>, List<ProdutoShowViewModel>>(db.Selecionar()));
         }
 
         // GET: Produtos/Details/5
@@ -30,7 +29,7 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
+            Produto produto = db.SelecionarPorId(id.Value);
 
             ProdutoShowViewModel viewModel = Mapper.Map<Produto, ProdutoShowViewModel>(produto);
             if (produto == null)
@@ -56,8 +55,7 @@ namespace Siteware.Prototipo.Web.Controllers
             if (ModelState.IsValid)
             {
                 Produto produto = Mapper.Map<ProdutoValidationViewModel, Produto>(viewModel);
-                db.Produtos.Add(produto);
-                db.SaveChanges();
+                db.Inserir(produto);
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +69,7 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
+            Produto produto = db.SelecionarPorId(id.Value);
 
             ProdutoValidationViewModel viewModel = Mapper.Map<Produto, ProdutoValidationViewModel>(produto);
             if (produto == null)
@@ -91,8 +89,7 @@ namespace Siteware.Prototipo.Web.Controllers
             if (ModelState.IsValid)
             {
                 Produto produto = Mapper.Map<ProdutoValidationViewModel, Produto>(viewModel);
-                db.Entry(produto).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Alterar(produto);
                 return RedirectToAction("Index");
             }
             return View(viewModel);
@@ -105,7 +102,7 @@ namespace Siteware.Prototipo.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
+            Produto produto = db.SelecionarPorId(id.Value);
             ProdutoShowViewModel viewModel = Mapper.Map<Produto, ProdutoShowViewModel>(produto);
             if (produto == null)
             {
@@ -119,19 +116,8 @@ namespace Siteware.Prototipo.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produto produto = db.Produtos.Find(id);
-            db.Produtos.Remove(produto);
-            db.SaveChanges();
+            db.ExcluirPorId(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
