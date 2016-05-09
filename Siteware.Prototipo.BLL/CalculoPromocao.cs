@@ -24,26 +24,25 @@ namespace Siteware.Prototipo.BLL
             {
                 promocao = dbProduto.SelecionarPorId(carrinho.IdProduto).Promocao;
                 carrinho.Promocao = promocao.Nome;
-                if (promocao.ResultadoPropriedade.ToLower().Equals("itens"))
+                if (promocao.Tipo.ToLower().Equals("brinde"))
                 {
                     carrinho.QuantidadeFinal = CalcularQuantidade() + carrinho.QuantidadeCompra;
                 }
-                if (promocao.ResultadoPropriedade.ToLower().Equals("valor"))
+                else if (promocao.Tipo.ToLower().Equals("preço fixo"))
                 {
-                    if (promocao.Tipo.ToLower().Equals("preço fixo"))
-                    {
-                        carrinho.ValorCompra = CalculaPrecoFixo();
-                        carrinho.QuantidadeFinal = carrinho.QuantidadeCompra;
-                    }
-                    if (promocao.Tipo.ToLower().Equals("desconto"))
-                    {
-                        carrinho.ValorCompra = CalcularDesconto();
-                        carrinho.QuantidadeFinal = carrinho.QuantidadeCompra;
-                    }
+                    carrinho.ValorCompra = CalculaPrecoFixo();
+                    carrinho.QuantidadeFinal = carrinho.QuantidadeCompra;
                 }
-
-                //carrinho.QuantidadeFinal = carrinho.QuantidadeCompra;
-                //carrinho.ValorCompra = carrinho.ValorUnitario * carrinho.QuantidadeCompra;
+                else if (promocao.Tipo.ToLower().Equals("desconto"))
+                {
+                    carrinho.ValorCompra = CalcularDesconto();
+                    carrinho.QuantidadeFinal = carrinho.QuantidadeCompra;
+                }
+                else
+                {
+                    carrinho.QuantidadeFinal = carrinho.QuantidadeCompra;
+                    carrinho.ValorCompra = carrinho.ValorUnitario * carrinho.QuantidadeCompra;
+                }
             }
             return carrinho;
         }
@@ -169,7 +168,7 @@ namespace Siteware.Prototipo.BLL
                     }
                     if (promocao.ResultadoTipo.ToLower().Equals("%"))
                     {
-                        retorno = carrinho.ValorCompra > promocao.BaseValor ? carrinho.ValorCompra - (carrinho.ValorCompra*(promocao.ResultadoValor/100)) : carrinho.ValorCompra;
+                        retorno = carrinho.ValorCompra > promocao.BaseValor ? carrinho.ValorCompra - (carrinho.ValorCompra * (promocao.ResultadoValor / 100)) : carrinho.ValorCompra;
                     }
                 }
             }

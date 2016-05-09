@@ -28,13 +28,13 @@
             @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.Tipo, "Brinde") Brinde
+                    @Html.RadioButtonFor(model => model.Tipo, "Brinde", htmlAttributes: new { @class = "tBrinde" }) Brinde
                 </div>
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.Tipo, "Preço Fixo") Preço Fixo
+                    @Html.RadioButtonFor(model => model.Tipo, "Preço Fixo", htmlAttributes: new { @class = "tPrecoFixo" }) Preço Fixo
                 </div>
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.Tipo, "Desconto") Desconto
+                    @Html.RadioButtonFor(model => model.Tipo, "Desconto", htmlAttributes: new { @class = "tDesconto" }) Desconto
                 </div>
                 @*@Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
@@ -45,10 +45,10 @@
             @Html.LabelFor(model => model.BasePropriedade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.BasePropriedade, "Itens") Itens
+                    @Html.RadioButtonFor(model => model.BasePropriedade, "Itens", htmlAttributes: new { @class = "bpItens" }) Itens
                 </div>
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.BasePropriedade, "Valor") Valor
+                    @Html.RadioButtonFor(model => model.BasePropriedade, "Valor", htmlAttributes: new { @class = "bpValor" }) Valor
                 </div>
                 @*@Html.EditorFor(model => model.BasePropriedade, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.BasePropriedade, "", new { @class = "text-danger" })
@@ -59,10 +59,10 @@
             @Html.LabelFor(model => model.BaseTipo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.BaseTipo, "Acima de") Acima de
+                    @Html.RadioButtonFor(model => model.BaseTipo, "Acima de", htmlAttributes: new { @class = "btAcima" }) Acima de
                 </div>
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.BaseTipo, "A cada") A cada
+                    @Html.RadioButtonFor(model => model.BaseTipo, "A cada", htmlAttributes: new { @class = "btCada" }) A cada
                 </div>
                 @*@Html.EditorFor(model => model.BaseTipo, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.BaseTipo, "", new { @class = "text-danger" })
@@ -81,10 +81,10 @@
             @Html.LabelFor(model => model.ResultadoPropriedade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.ResultadoPropriedade, "Itens") Itens
+                    @Html.RadioButtonFor(model => model.ResultadoPropriedade, "Itens", htmlAttributes: new { @class = "rpItens" }) Itens
                 </div>
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.ResultadoPropriedade, "Valor") Valor
+                    @Html.RadioButtonFor(model => model.ResultadoPropriedade, "Valor", htmlAttributes: new { @class = "rpValor" }) Valor
                 </div>
                 @*@Html.EditorFor(model => model.ResultadoPropriedade, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.ResultadoPropriedade, "", new { @class = "text-danger" })
@@ -95,13 +95,13 @@
             @Html.LabelFor(model => model.ResultadoTipo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.ResultadoTipo, "Produto") Produto
+                    @Html.RadioButtonFor(model => model.ResultadoTipo, "Produto", htmlAttributes: new { @class = "rtProduto" }) Produto
                 </div>
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.ResultadoTipo, "R$") R$
+                    @Html.RadioButtonFor(model => model.ResultadoTipo, "R$", htmlAttributes: new { @class = "rtMoeda" }) R$
                 </div>
                 <div class="col-md-2 marginRadioButton">
-                    @Html.RadioButtonFor(model => model.ResultadoTipo, "%") %
+                    @Html.RadioButtonFor(model => model.ResultadoTipo, "%", htmlAttributes: new { @class = "rtPorCento" }) %
                 </div>
                 @*@Html.EditorFor(model => model.ResultadoTipo, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.ResultadoTipo, "", new { @class = "text-danger" })
@@ -132,3 +132,4 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script src="~/Scripts/jQueryFixes.js"></script>
+<script src="~/Scripts/LimitarConsulta.js"></script>
