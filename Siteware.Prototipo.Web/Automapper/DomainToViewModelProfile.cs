@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Siteware.Prototipo.Dominio;
+using Siteware.Prototipo.Web.ViewModels.Carrinho;
 using Siteware.Prototipo.Web.ViewModels.Produtos;
 using Siteware.Prototipo.Web.ViewModels.Promocao;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace Siteware.Prototipo.Web.Automapper
                     );
                 }) ;
             Mapper.CreateMap<Produto, ProdutoValidationViewModel>();
+            Mapper.CreateMap<Carrinho, CarrinhoShowViewModel>();
+            Mapper.CreateMap<Carrinho, CarrinhoValidationViewModel>();
         }
     }
 }

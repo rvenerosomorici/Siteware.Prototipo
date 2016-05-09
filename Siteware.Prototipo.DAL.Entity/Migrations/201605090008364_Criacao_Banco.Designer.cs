@@ -7,13 +7,13 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Alteracao_Campos : IMigrationMetadata
+    public sealed partial class Criacao_Banco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Alteracao_Campos));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Criacao_Banco));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605071827167_Alteracao_Campos"; }
+            get { return "201605090008364_Criacao_Banco"; }
         }
         
         string IMigrationMetadata.Source

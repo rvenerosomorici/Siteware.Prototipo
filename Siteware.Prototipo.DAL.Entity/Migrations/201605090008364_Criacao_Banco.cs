@@ -3,7 +3,7 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CriacaoDB : DbMigration
+    public partial class Criacao_Banco : DbMigration
     {
         public override void Up()
         {
@@ -14,10 +14,10 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         NOME = c.String(nullable: false, maxLength: 150),
                         Preco = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        PROMOCAO_ID = c.Int(nullable: false),
+                        PROMOCAO_ID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.PROMOCOES", t => t.PROMOCAO_ID, cascadeDelete: true)
+                .ForeignKey("dbo.PROMOCOES", t => t.PROMOCAO_ID)
                 .Index(t => t.PROMOCAO_ID);
             
             CreateTable(
@@ -26,7 +26,13 @@ namespace Siteware.Prototipo.DAL.Entity.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         NOME = c.String(nullable: false, maxLength: 150),
-                        PARAMETRO = c.String(nullable: false),
+                        TIPO = c.String(nullable: false),
+                        BASE_PROPRIEDADE = c.String(nullable: false),
+                        BASE_TIPO = c.String(nullable: false),
+                        BASE_VALOR = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        RESULTADO_PROPRIEDADE = c.String(nullable: false),
+                        RESULTADO_TIPO = c.String(nullable: false),
+                        RESULTADO_VALOR = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.ID);
             

@@ -50,17 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\PrototipoDbContext.cs" />
-    <Compile Include="Migrations\201605070008411_CriacaoDB.cs" />
-    <Compile Include="Migrations\201605070008411_CriacaoDB.Designer.cs">
-      <DependentUpon>201605070008411_CriacaoDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605071747392_Alteracao_Inclusao_Campos.cs" />
-    <Compile Include="Migrations\201605071747392_Alteracao_Inclusao_Campos.Designer.cs">
-      <DependentUpon>201605071747392_Alteracao_Inclusao_Campos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605071827167_Alteracao_Campos.cs" />
-    <Compile Include="Migrations\201605071827167_Alteracao_Campos.Designer.cs">
-      <DependentUpon>201605071827167_Alteracao_Campos.cs</DependentUpon>
+    <Compile Include="Migrations\201605090008364_Criacao_Banco.cs" />
+    <Compile Include="Migrations\201605090008364_Criacao_Banco.Designer.cs">
+      <DependentUpon>201605090008364_Criacao_Banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,14 +74,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605070008411_CriacaoDB.resx">
-      <DependentUpon>201605070008411_CriacaoDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605071747392_Alteracao_Inclusao_Campos.resx">
-      <DependentUpon>201605071747392_Alteracao_Inclusao_Campos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605071827167_Alteracao_Campos.resx">
-      <DependentUpon>201605071827167_Alteracao_Campos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605090008364_Criacao_Banco.resx">
+      <DependentUpon>201605090008364_Criacao_Banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

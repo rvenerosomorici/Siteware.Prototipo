@@ -13,7 +13,6 @@ namespace Siteware.Prototipo.Web.ViewModels.Produtos
         [Required(ErrorMessage = "O preço é obrigatório")]
         public decimal Preco { get; set; }
         [Display(Name = "Promoção")]
-        [Required(ErrorMessage = "A promoção é obrigatória")]
-        public int IdPromocao { get; set; }
+        public int? IdPromocao { get; set; }
     }
 }

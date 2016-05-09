@@ -45,7 +45,9 @@ namespace Siteware.Prototipo.Web.Controllers
         // GET: Produtos/Create
         public ActionResult Create()
         {
+            PromocaoShowViewModel promo = new PromocaoShowViewModel { Nome = "Selecione uma Promoção" };
             List<PromocaoShowViewModel> lstPromocoes = Mapper.Map<List<Promocao>, List<PromocaoShowViewModel>>(dbPromocao.Selecionar());
+            lstPromocoes.Insert(0,promo);
             SelectList ddPromocoes = new SelectList(lstPromocoes, "Id", "Nome");
             ViewBag.ddPromocoes = ddPromocoes;
             return View();
@@ -61,6 +63,7 @@ namespace Siteware.Prototipo.Web.Controllers
             if (ModelState.IsValid)
             {
                 Produto produto = Mapper.Map<ProdutoValidationViewModel, Produto>(viewModel);
+                produto.IdPromocao = produto.IdPromocao == 0 ? null : produto.IdPromocao;
                 db.Inserir(produto);
                 return RedirectToAction("Index");
             }
@@ -76,7 +79,9 @@ namespace Siteware.Prototipo.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.SelecionarPorId(id.Value);
+            PromocaoShowViewModel promo = new PromocaoShowViewModel { Nome = "Selecione uma Promoção" };
             List<PromocaoShowViewModel> lstPromocoes = Mapper.Map<List<Promocao>, List<PromocaoShowViewModel>>(dbPromocao.Selecionar());
+            lstPromocoes.Insert(0, promo);
             SelectList ddPromocoes = new SelectList(lstPromocoes, "Id", "Nome");
             ViewBag.ddPromocoes = ddPromocoes;
 

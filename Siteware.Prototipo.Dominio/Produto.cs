@@ -7,6 +7,6 @@
         public decimal Preco { get; set; }
 
         public virtual Promocao Promocao { get; set; }
-        public int IdPromocao { get; set; }
+        public int? IdPromocao { get; set; }
     }
 }
