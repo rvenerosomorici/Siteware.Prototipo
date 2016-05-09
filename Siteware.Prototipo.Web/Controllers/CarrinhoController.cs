@@ -9,6 +9,7 @@ using Siteware.Prototipo.Web.ViewModels.Produtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -25,6 +26,18 @@ namespace Siteware.Prototipo.Web.Controllers
             lstProdutos.Insert(0, produtoInicial);
             SelectList ddProdutos = new SelectList(lstProdutos, "Id", "Nome");
             ViewBag.ddProdutos = ddProdutos;
+
+            List<CarrinhoShowViewModel> lstlstCarrinhoShowViewModel = new List<CarrinhoShowViewModel>();
+
+            lstlstCarrinhoShowViewModel = (List<CarrinhoShowViewModel>)TempData["lstCarrinhoShowViewModel"];
+            if (lstlstCarrinhoShowViewModel != null)
+            {
+                if (lstlstCarrinhoShowViewModel.Count == 0)
+                    lstlstCarrinhoShowViewModel = null;
+            }
+
+            TempData["lstCarrinhoShowViewModel"] = lstlstCarrinhoShowViewModel;
+            ViewBag.lstCarrinhoShowViewModel = lstlstCarrinhoShowViewModel;
 
             return View();
         }
@@ -63,6 +76,26 @@ namespace Siteware.Prototipo.Web.Controllers
             ViewBag.ddProdutos = ddProdutos;
             viewModel = new CarrinhoValidationViewModel();
             return View(viewModel);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            Produto produto = dbProduto.SelecionarPorId(id.Value);
+            List<CarrinhoShowViewModel> lstlstCarrinhoShowViewModel = new List<CarrinhoShowViewModel>();
+
+            lstlstCarrinhoShowViewModel = (List<CarrinhoShowViewModel>)TempData["lstCarrinhoShowViewModel"];
+            if (lstlstCarrinhoShowViewModel == null)
+                lstlstCarrinhoShowViewModel = new List<CarrinhoShowViewModel>();
+            else if (lstlstCarrinhoShowViewModel.FirstOrDefault(x => x.IdProduto == id) != null)
+            {
+                CarrinhoShowViewModel car = lstlstCarrinhoShowViewModel.FirstOrDefault(x => x.IdProduto == id);
+                lstlstCarrinhoShowViewModel.Remove(car);
+            }
+
+            TempData["lstCarrinhoShowViewModel"] = lstlstCarrinhoShowViewModel;
+            ViewBag.lstCarrinhoShowViewModel = lstlstCarrinhoShowViewModel;
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult SelecionarProduto(string strId)

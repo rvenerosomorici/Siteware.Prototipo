@@ -57,13 +57,13 @@
                         <th>
                             @Html.DisplayName("Produto")
                         </th>
-                        <th>
+                        <th class="hidden-xs">
                             @Html.DisplayName("Valor Unitário")
                         </th>
                         <th>
                             @Html.DisplayName("Promoção")
                         </th>
-                        <th>
+                        <th class="hidden-xs">
                             @Html.DisplayName("Quantidade de Compra")
                         </th>
                         <th>
@@ -80,13 +80,13 @@
                             <td>
                                 @item.NomeProduto
                             </td>
-                            <td>
+                            <td class="hidden-xs">
                                 R$ @item.ValorUnitario
                             </td>
                             <td>
                                 @item.Promocao
                             </td>
-                            <td>
+                            <td class="hidden-xs">
                                 @item.QuantidadeCompra
                             </td>
                             <td>
@@ -96,8 +96,6 @@
                                 R$ @item.ValorCompra
                             </td>
                             <td>
-                                @Html.ActionLink("Alterar", "Edit", new { id = @item.IdProduto }) |
-                                @Html.ActionLink("Detalhes", "Details", new { id = @item.IdProduto }) |
                                 @Html.ActionLink("Excluir", "Delete", new { id = @item.IdProduto })
                             </td>
                         </tr>
